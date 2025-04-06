@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário Sofisticado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2b2b2b, #525252, #858585, #adadad);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+
+    /* Padrão de textura sutil */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0h20v20L20 40H0z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Formulário container */
+    form {
+      max-width: 850px;
+      margin: 60px auto;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      z-index: 2;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #222;
+      position: relative;
+    }
+
+    h1::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #aaaaaa, #565656);
+      border-radius: 3px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      color: #444;
+      border-left: 4px solid #777;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .question textarea {
+      width: 100%;
+      height: 100px;
+      padding: 15px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: rgba(249, 249, 249, 0.8);
+      transition: all 0.3s ease;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .question textarea:focus {
+      border-color: #888;
+      outline: none;
+      background-color: #fff;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05), 0 0 8px rgba(100,100,100,0.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background: linear-gradient(to right, #525252, #6a6a6a, #848484);
+      background-size: 200% auto;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    button:hover {
+      background-position: right center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+
+    #response {
+      display: none;
+      background-color: rgba(238, 241, 244, 0.9);
+      border-left: 4px solid #666;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    #response pre {
+      white-space: pre-wrap;
+    }
+
+    /* Background elements */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.4;
+      z-index: 0;
+      filter: blur(50px);
+    }
+
+    .bg-shape.one {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #444444, #222222);
+      top: -150px;
+      left: -200px;
+    }
+
+    .bg-shape.two {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, #777777, #444444);
+      bottom: -200px;
+      right: -200px;
+    }
+
+    .bg-shape.three {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #999999, #666666);
+      top: 40%;
+      left: 60%;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 25px;
+        margin: 30px 15px;
+      }
+
+      .question textarea {
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- background blobs -->
+  <div class="bg-shape one"></div>
+  <div class="bg-shape two"></div>
+  <div class="bg-shape three"></div>
+
+  <form id="interactiveForm">
+    <h1>Consultoria Celso Monteiro</h1>
+
+    <!-- SEÇÃO 1 -->
+    <div class="section">
+      <h2>Alinhamento com Público-Alvo</h2>
+      <div class="question">
+        <label>Analisando sua base atual de pacientes, qual desses procedimentos atenderia uma necessidade não satisfeita mais comum?</label>
+        <textarea name="alinhamento1"></textarea>
+      </div>
+      <div class="question">
+        <label>Com qual perfil de paciente você estabelece melhor rapport e consegue comunicar benefícios de forma mais natural e confortável?</label>
+        <textarea name="alinhamento2"></textarea>
+      </div>
+      <div class="question">
+        <label>Considerando a faixa etária predominante dos seus pacientes, qual desses procedimentos seria mais relevante?</label>
+        <textarea name="alinhamento3"></textarea>
+      </div>
+      <div class="question">
+        <label>Em conversas com seus pacientes atuais, qual dessas áreas é mais frequentemente mencionada como interesse ou preocupação?</label>
+        <textarea name="alinhamento4"></textarea>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2 -->
+    <div class="section">
+      <h2>Diferenciação e Posicionamento</h2>
+      <div class="question">
+        <label>Qual desses procedimentos possui menos especialistas qualificados na sua região?</label>
+        <textarea name="diferenciacao1"></textarea>
+      </div>
+      <div class="question">
+        <label>Qual procedimento mais se alinharia com o posicionamento atual da sua clínica e fortaleceria sua marca pessoal?</label>
+        <textarea name="diferenciacao2"></textarea>
+      </div>
+      <div class="question">
+        <label>Em qual dessas especialidades você poderia se destacar mais rapidamente e se tornar uma referência local?</label>
+        <textarea name="diferenciacao3"></textarea>
+      </div>
+      <div class="question">
+        <label>Qual dessas áreas tem menor concorrência qualificada e permitiria criar um diferencial competitivo mais forte?</label>
+        <textarea name="diferenciacao4"></textarea>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3 -->
+    <div class="section">
+      <h2>Viabilidade e Implementação</h2>
+      <div class="question">
+        <label>Considerando sua estrutura atual, qual procedimento exigiria menos adaptações ou investimentos em equipamentos?</label>
+        <textarea name="viabilidade1"></textarea>
+      </div>
+      <div class="question">
+        <label>Qual desses procedimentos se encaixaria mais naturalmente no fluxo de atendimento que você já possui?</label>
+        <textarea name="viabilidade2"></textarea>
+      </div>
+      <div class="question">
+        <label>Para qual destas especialidades você já possui conhecimentos complementares que facilitariam o aprendizado?</label>
+        <textarea name="viabilidade3"></textarea>
+      </div>
+      <div class="question">
+        <label>Em qual procedimento você conseguiria alcançar proficiência técnica mais rapidamente?</label>
+        <textarea name="viabilidade4"></textarea>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 4 -->
+    <div class="section">
+      <h2>Retorno sobre Investimento</h2>
+      <div class="question">
+        <label>Qual desses procedimentos possui maior potencial de fidelização e continuidade de tratamento?</label>
+        <textarea name="roi1"></textarea>
+      </div>
+      <div class="question">
+        <label>Considerando custo de insumos, tempo de execução e valor percebido, qual procedimento apresenta melhor margem potencial?</label>
+        <textarea name="roi2"></textarea>
+      </div>
+      <div class="question">
+        <label>Qual dessas especialidades poderia gerar mais procedimentos complementares que você já realiza?</label>
+        <textarea name="roi3"></textarea>
+      </div>
+      <div class="question">
+        <label>Considerando o ticket médio, qual desses procedimentos mais contribuiria para aumentar a rentabilidade da sua clínica?</label>
+        <textarea name="roi4"></textarea>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 5 -->
+    <div class="section">
+      <h2>Afinidade Pessoal</h2>
+      <div class="question">
+        <label>Qual desses procedimentos mais desperta seu interesse e entusiasmo profissional?</label>
+        <textarea name="afinidade1"></textarea>
+      </div>
+      <div class="question">
+        <label>Em qual destas áreas você se sentiria mais confortável para educar pacientes e explicar benefícios?</label>
+        <textarea name="afinidade2"></textarea>
+      </div>
+      <div class="question">
+        <label>Considerando sua própria personalidade e comunicação, com qual desses procedimentos você teria mais facilidade para estabelecer confiança com o paciente?</label>
+        <textarea name="afinidade3"></textarea>
+      </div>
+      <div class="question">
+        <label>Qual desses procedimentos se alinha melhor com sua visão de longo prazo para sua carreira e especialização?</label>
+        <textarea name="afinidade4"></textarea>
+      </div>
+    </div>
+
+    <button type="submit">Enviar Respostas</button>
+
+    <div id="response">
+      <h3>Respostas enviadas:</h3>
+      <pre id="responsesText"></pre>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('interactiveForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Mostrar respostas na página (mantendo a funcionalidade original)
+      const formData = new FormData(this);
+      let responses = '';
+      formData.forEach((value, key) => {
+        responses += `${key}: ${value}\n`;
+      });
+      document.getElementById('responsesText').textContent = responses;
+      document.getElementById('response').style.display = 'block';
+      
+      // Criar objeto para enviar ao n8n
+      const dataToSend = {};
+      formData.forEach((value, key) => {
+        dataToSend[key] = value;
+      });
+      
+      // Adicionar data e hora do envio
+      dataToSend.dataHoraEnvio = new Date().toISOString();
+      
+      // Enviar dados para o webhook do n8n
+      fetch('https://rossiatmz.com.br/webhook/consultoria_celso', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend)
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Dados enviados com sucesso para o n8n');
+          // Opcional: adicionar mensagem de sucesso para o usuário
+          document.getElementById('responsesText').textContent += '\n\nRespostas enviadas com sucesso!';
+        } else {
+          console.error('Erro ao enviar dados');
+          // Opcional: adicionar mensagem de erro para o usuário
+          document.getElementById('responsesText').textContent += '\n\nErro ao enviar respostas. Por favor, tente novamente.';
+        }
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        // Opcional: adicionar mensagem de erro para o usuário
+        document.getElementById('responsesText').textContent += '\n\nErro ao enviar respostas. Por favor, tente novamente.';
+      });
+      
+      // Opcional: manter ou remover o reset do formulário
+      // this.reset();
+    });
+  </script>
+</body>
+</html>
