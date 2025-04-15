@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de Personalidade DISC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .result {
+      display: none;
+      margin-top: 30px;
+    }
+    h2 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Teste de Personalidade DISC</h1>
+  <p>Responda às perguntas abaixo para descobrir seu perfil comportamental.</p>
+
+  <div id="questions">
+    <div class="question">
+      <p><strong>1. Quando enfrenta um problema inesperado, você tende a:</strong></p>
+      <label><input type="radio" name="q1" value="D"> Agir rapidamente para resolver o problema.</label><br>
+      <label><input type="radio" name="q1" value="I"> Buscar apoio e envolver outras pessoas para encontrar soluções.</label><br>
+      <label><input type="radio" name="q1" value="S"> Manter a calma e analisar cuidadosamente antes de agir.</label><br>
+      <label><input type="radio" name="q1" value="C"> Revisar todos os detalhes e planejar com precisão.</label>
+    </div>
+    <div class="question">
+      <p><strong>2. Como você prefere trabalhar em equipe?</strong></p>
+      <label><input type="radio" name="q2" value="D"> Tomando a liderança e definindo as tarefas.</label><br>
+      <label><input type="radio" name="q2" value="I"> Motivando e inspirando os outros.</label><br>
+      <label><input type="radio" name="q2" value="S"> Colaborando harmoniosamente e apoiando os colegas.</label><br>
+      <label><input type="radio" name="q2" value="C"> Seguindo processos claros e garantindo qualidade.</label>
+    </div>
+    <div class="question">
+      <p><strong>3. Em uma reunião importante, você:</strong></p>
+      <label><input type="radio" name="q3" value="D"> Foca em resultados e decisões rápidas.</label><br>
+      <label><input type="radio" name="q3" value="I"> Tenta criar um ambiente descontraído e participativo.</label><br>
+      <label><input type="radio" name="q3" value="S"> Escuta atentamente e busca consenso.</label><br>
+      <label><input type="radio" name="q3" value="C"> Apresenta dados e fatos organizados.</label>
+    </div>
+    <div class="question">
+      <p><strong>4. O que mais te motiva no trabalho ou nos estudos?</strong></p>
+      <label><input type="radio" name="q4" value="D"> Superar desafios e alcançar metas ambiciosas.</label><br>
+      <label><input type="radio" name="q4" value="I"> Criar conexões e interagir com as pessoas.</label><br>
+      <label><input type="radio" name="q4" value="S"> Contribuir para um ambiente estável e cooperativo.</label><br>
+      <label><input type="radio" name="q4" value="C"> Realizar tarefas com precisão e excelência.</label>
+    </div>
+    <div class="question">
+      <p><strong>5. Como você lida com críticas ou feedbacks?</strong></p>
+      <label><input type="radio" name="q5" value="D"> Aceita apenas se forem construtivos e úteis.</label><br>
+      <label><input type="radio" name="q5" value="I"> Reflete sobre o feedback, mas busca apoio emocional.</label><br>
+      <label><input type="radio" name="q5" value="S"> Escuta pacientemente e ajusta suas ações.</label><br>
+      <label><input type="radio" name="q5" value="C"> Analisa criticamente para entender o contexto.</label>
+    </div>
+    <div class="question">
+      <p><strong>6. Em uma festa ou evento social, você geralmente:</strong></p>
+      <label><input type="radio" name="q6" value="D"> Assume a liderança e conhece novas pessoas.</label><br>
+      <label><input type="radio" name="q6" value="I"> É o centro das atenções e anima o ambiente.</label><br>
+      <label><input type="radio" name="q6" value="S"> Observa primeiro antes de interagir.</label><br>
+      <label><input type="radio" name="q6" value="C"> Prefere conversas profundas e significativas.</label>
+    </div>
+    <div class="question">
+      <p><strong>7. Quando precisa tomar uma decisão importante, você:</strong></p>
+      <label><input type="radio" name="q7" value="D"> Confia no instinto e age rapidamente.</label><br>
+      <label><input type="radio" name="q7" value="I"> Consulta amigos ou colegas para ter diferentes perspectivas.</label><br>
+      <label><input type="radio" name="q7" value="S"> Pensa nas consequências para evitar conflitos.</label><br>
+      <label><input type="radio" name="q7" value="C"> Reúne dados e faz uma análise lógica.</label>
+    </div>
+    <div class="question">
+      <p><strong>8. Qual ambiente de trabalho ou estudo você prefere?</strong></p>
+      <label><input type="radio" name="q8" value="D"> Competitivo, onde posso mostrar meu desempenho.</label><br>
+      <label><input type="radio" name="q8" value="I"> Dinâmico, com muita interação e energia.</label><br>
+      <label><input type="radio" name="q8" value="S"> Estável, onde posso manter rotinas e previsibilidade.</label><br>
+      <label><input type="radio" name="q8" value="C"> Estruturado, com regras claras e processos bem definidos.</label>
+    </div>
+    <div class="question">
+      <p><strong>9. Como você reage a mudanças repentinas?</strong></p>
+      <label><input type="radio" name="q9" value="D"> Vejo como uma oportunidade para agir com rapidez.</label><br>
+      <label><input type="radio" name="q9" value="I"> Me adapto facilmente e tento torná-las divertidas.</label><br>
+      <label><input type="radio" name="q9" value="S"> Preciso de tempo para me ajustar.</label><br>
+      <label><input type="radio" name="q9" value="C"> Avalio cuidadosamente os impactos antes de aceitar.</label>
+    </div>
+    <div class="question">
+      <p><strong>10. O que mais valoriza nas relações pessoais?</strong></p>
+      <label><input type="radio" name="q10" value="D"> Respeito e admiração pelos meus resultados.</label><br>
+      <label><input type="radio" name="q10" value="I"> Alegria, diversão e momentos memoráveis.</label><br>
+      <label><input type="radio" name="q10" value="S"> Lealdade, confiança e apoio mútuo.</label><br>
+      <label><input type="radio" name="q10" value="C"> Honestidade, transparência e compromisso.</label>
+    </div>
+    <div class="question">
+      <p><strong>11. Quando está sob pressão, você tende a:</strong></p>
+      <label><input type="radio" name="q11" value="D"> Agir de forma assertiva e assumir o controle.</label><br>
+      <label><input type="radio" name="q11" value="I"> Procurar apoio emocional e incentivar os outros.</label><br>
+      <label><input type="radio" name="q11" value="S"> Manter a calma e evitar confrontos.</label><br>
+      <label><input type="radio" name="q11" value="C"> Seguir protocolos para garantir que tudo esteja certo.</label>
+    </div>
+    <div class="question">
+      <p><strong>12. O que você mais gosta em aprender algo novo?</strong></p>
+      <label><input type="radio" name="q12" value="D"> Aplicar rapidamente e ver resultados concretos.</label><br>
+      <label><input type="radio" name="q12" value="I"> Compartilhar o que aprendeu com outras pessoas.</label><br>
+      <label><input type="radio" name="q12" value="S"> Entender como isso pode trazer equilíbrio à minha vida.</label><br>
+      <label><input type="radio" name="q12" value="C"> Dominar todos os detalhes e garantir precisão.</label>
+    </div>
+    <div class="question">
+      <p><strong>13. Como você prefere receber instruções?</strong></p>
+      <label><input type="radio" name="q13" value="D"> Diretas e objetivas, sem muitos detalhes.</label><br>
+      <label><input type="radio" name="q13" value="I"> De forma entusiasmada e motivadora.</label><br>
+      <label><input type="radio" name="q13" value="S"> Com paciência e espaço para perguntas.</label><br>
+      <label><input type="radio" name="q13" value="C"> Organizadas e com informações completas.</label>
+    </div>
+    <div class="question">
+      <p><strong>14. O que mais te frustra no trabalho ou nos estudos?</strong></p>
+      <label><input type="radio" name="q14" value="D"> Falta de desafios ou metas ambiciosas.</label><br>
+      <label><input type="radio" name="q14" value="I"> Ambientes monótonos e sem interação.</label><br>
+      <label><input type="radio" name="q14" value="S"> Conflitos ou mudanças bruscas.</label><br>
+      <label><input type="radio" name="q14" value="C"> Falta de organização ou imprecisão.</label>
+    </div>
+    <div class="question">
+      <p><strong>15. Como você avalia sua capacidade de persuasão?</strong></p>
+      <label><input type="radio" name="q15" value="D"> Sou direto(a) e objetivo(a).</label><br>
+      <label><input type="radio" name="q15" value="I"> Uso criatividade e entusiasmo.</label><br>
+      <label><input type="radio" name="q15" value="S"> Construo confiança ao longo do tempo.</label><br>
+      <label><input type="radio" name="q15" value="C"> Baseio-me em fatos e dados.</label>
+    </div>
+    <div class="question">
+      <p><strong>16. O que mais te motiva a alcançar seus objetivos?</strong></p>
+      <label><input type="radio" name="q16" value="D"> Reconhecimento e status.</label><br>
+      <label><input type="radio" name="q16" value="I"> Relacionamentos e colaboração.</label><br>
+      <label><input type="radio" name="q16" value="S"> Harmonia e estabilidade.</label><br>
+      <label><input type="radio" name="q16" value="C"> Precisão e excelência.</label>
+    </div>
+    <div class="question">
+      <p><strong>17. Como você lida com prazos apertados?</strong></p>
+      <label><input type="radio" name="q17" value="D"> Priorizo tarefas e agilizo o processo.</label><br>
+      <label><input type="radio" name="q17" value="I"> Motivo a equipe para superar o desafio.</label><br>
+      <label><input type="radio" name="q17" value="S"> Mantenho a calma e sigo o planejamento.</label><br>
+      <label><input type="radio" name="q17" value="C"> Verifico cada detalhe para evitar erros.</label>
+    </div>
+    <div class="question">
+      <p><strong>18. O que mais te atrai em um projeto?</strong></p>
+      <label><input type="radio" name="q18" value="D"> A possibilidade de liderar e inovar.</label><br>
+      <label><input type="radio" name="q18" value="I"> A chance de interagir e motivar pessoas.</label><br>
+      <label><input type="radio" name="q18" value="S"> A previsibilidade e segurança.</label><br>
+      <label><input type="radio" name="q18" value="C"> A estrutura e organização.</label>
+    </div>
+    <div class="question">
+      <p><strong>19. Como você reage a situações de risco?</strong></p>
+      <label><input type="radio" name="q19" value="D"> Encaro como uma oportunidade de crescimento.</label><br>
+      <label><input type="radio" name="q19" value="I"> Procuro apoio para avaliar os prós e contras.</label><br>
+      <label><input type="radio" name="q19" value="S"> Evito riscos desnecessários.</label><br>
+      <label><input type="radio" name="q19" value="C"> Analiso cuidadosamente antes de agir.</label>
+    </div>
+    <div class="question">
+      <p><strong>20. O que mais valoriza em um líder?</strong></p>
+      <label><input type="radio" name="q20" value="D"> Decisão e assertividade.</label><br>
+      <label><input type="radio" name="q20" value="I"> Carisma e capacidade de inspirar.</label><br>
+      <label><input type="radio" name="q20" value="S"> Empatia e paciência.</label><br>
+      <label><input type="radio" name="q20" value="C"> Organização e atenção aos detalhes.</label>
+    </div>
+    <div class="question">
+      <p><strong>21. Como você lida com conflitos interpessoais?</strong></p>
+      <label><input type="radio" name="q21" value="D"> Enfrento diretamente para resolver.</label><br>
+      <label><input type="radio" name="q21" value="I"> Busco mediar e promover entendimento.</label><br>
+      <label><input type="radio" name="q21" value="S"> Evito confrontos para manter a harmonia.</label><br>
+      <label><input type="radio" name="q21" value="C"> Analiso o contexto para propor soluções.</label>
+    </div>
+    <div class="question">
+      <p><strong>22. O que mais te motiva em um ambiente de trabalho?</strong></p>
+      <label><input type="radio" name="q22" value="D"> Metas desafiadoras e reconhecimento.</label><br>
+      <label><input type="radio" name="q22" value="I"> Interação e colaboração com a equipe.</label><br>
+      <label><input type="radio" name="q22" value="S"> Estabilidade e previsibilidade.</label><br>
+      <label><input type="radio" name="q22" value="C"> Processos claros e organização.</label>
+    </div>
+    <div class="question">
+      <p><strong>23. Como você avalia sua capacidade de lidar com o estresse?</strong></p>
+      <label><input type="radio" name="q23" value="D"> Sou resiliente e me adapto rapidamente.</label><br>
+      <label><input type="radio" name="q23" value="I"> Busco apoio para lidar com a frustração.</label><br>
+      <label><input type="radio" name="q23" value="S"> Mantenho a calma e evito reações impulsivas.</label><br>
+      <label><input type="radio" name="q23" value="C"> Planejo estratégias para gerenciar o estresse.</label>
+    </div>
+    <div class="question">
+      <p><strong>24. O que mais te frustra em um ambiente de trabalho?</strong></p>
+      <label><input type="radio" name="q24" value="D"> Falta de autonomia ou liberdade.</label><br>
+      <label><input type="radio" name="q24" value="I"> Ambientes isolados ou pouco interativos.</label><br>
+      <label><input type="radio" name="q24" value="S"> Conflitos ou falta de harmonia.</label><br>
+      <label><input type="radio" name="q24" value="C"> Desorganização ou imprecisão.</label>
+    </div>
+    <div class="question">
+      <p><strong>25. Como você define seu estilo de comunicação?</strong></p>
+      <label><input type="radio" name="q25" value="D"> Direto, objetivo e focado em resultados.</label><br>
+      <label><input type="radio" name="q25" value="I"> Animado, entusiasmado e criativo.</label><br>
+      <label><input type="radio" name="q25" value="S"> Calmo, empático e paciente.</label><br>
+      <label><input type="radio" name="q25" value="C"> Detalhista, organizado e preciso.</label>
+    </div>
+    <div class="question">
+      <p><strong>26. O que mais te atrai em uma nova oportunidade?</strong></p>
+      <label><input type="radio" name="q26" value="D"> Desafios e chances de crescimento.</label><br>
+      <label><input type="radio" name="q26" value="I"> Possibilidades de interação e networking.</label><br>
+      <label><input type="radio" name="q26" value="S"> Estabilidade e segurança.</label><br>
+      <label><input type="radio" name="q26" value="C"> Organização e clareza nos processos.</label>
+    </div>
+    <div class="question">
+      <p><strong>27. Como você lida com feedback negativo?</strong></p>
+      <label><input type="radio" name="q27" value="D"> Aceito apenas se for relevante e útil.</label><br>
+      <label><input type="radio" name="q27" value="I"> Procuro apoio para lidar com a frustração.</label><br>
+      <label><input type="radio" name="q27" value="S"> Reflito calmamente e ajusto minhas ações.</label><br>
+      <label><input type="radio" name="q27" value="C"> Analiso criticamente para entender o contexto.</label>
+    </div>
+    <div class="question">
+      <p><strong>28. O que mais valoriza em uma equipe?</strong></p>
+      <label><input type="radio" name="q28" value="D"> Eficiência e resultados rápidos.</label><br>
+      <label><input type="radio" name="q28" value="I"> Energia positiva e colaboração.</label><br>
+      <label><input type="radio" name="q28" value="S"> Harmonia e confiança mútua.</label><br>
+      <label><input type="radio" name="q28" value="C"> Precisão e atenção aos detalhes.</label>
+    </div>
+    <div class="question">
+      <p><strong>29. Como você avalia sua capacidade de adaptar-se a novas situações?</strong></p>
+      <label><input type="radio" name="q29" value="D"> Sou flexível e me adapto rapidamente.</label><br>
+      <label><input type="radio" name="q29" value="I"> Busco apoio para facilitar a transição.</label><br>
+      <label><input type="radio" name="q29" value="S"> Prefiro manter a rotina sempre que possível.</label><br>
+      <label><input type="radio" name="q29" value="C"> Analiso cuidadosamente antes de me adaptar.</label>
+    </div>
+    <div class="question">
+      <p><strong>30. O que mais te motiva a buscar crescimento pessoal?</strong></p>
+      <label><input type="radio" name="q30" value="D"> Alcançar metas ambiciosas e ser reconhecido(a).</label><br>
+      <label><input type="radio" name="q30" value="I"> Criar conexões e inspirar outras pessoas.</label><br>
+      <label><input type="radio" name="q30" value="S"> Promover harmonia e equilíbrio na vida.</label><br>
+      <label><input type="radio" name="q30" value="C"> Aperfeiçoar habilidades e garantir precisão.</label>
+    </div>
+  </div>
+
+  <button onclick="calculateResults()">Ver Resultado</button>
+
+  <div id="results" class="result">
+    <h2>Seu Perfil Comportamental</h2>
+    <p id="profile-summary"></p>
+    <h3>Pontos Fortes</h3>
+    <p id="strengths"></p>
+    <h3>Pontos de Desenvolvimento</h3>
+    <p id="development-areas"></p>
+    <h3>Relações Interpessoais</h3>
+    <p id="interpersonal-relations"></p>
+    <h3>Tomada de Decisão</h3>
+    <p id="decision-making"></p>
+    <h3>Motivador Principal</h3>
+    <p id="main-motivator"></p>
+    <h3>Motivador Secundário</h3>
+    <p id="secondary-motivator"></p>
+  </div>
+
+  <script>
+    function calculateResults() {
+      const answers = {};
+      for (let i = 1; i <= 30; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+          answers[`q${i}`] = selected.value;
+        } else {
+          alert("Por favor, responda todas as perguntas.");
+          return;
+        }
+      }
+
+      const scores = { D: 0, I: 0, S: 0, C: 0 };
+      for (const key in answers) {
+        scores[answers[key]]++;
+      }
+
+      let profile = '';
+      let summary = '';
+      let strengths = '';
+      let developmentAreas = '';
+      let interpersonalRelations = '';
+      let decisionMaking = '';
+      let mainMotivator = '';
+      let secondaryMotivator = '';
+
+      if (scores.D > scores.I && scores.D > scores.S && scores.D > scores.C) {
+        profile = 'Dominante (D)';
+        summary = 'Você é uma pessoa determinada, direta e orientada para resultados. Gosta de desafios e não tem medo de assumir riscos.';
+        strengths = '- Liderança natural;<br>- Capacidade de resolver problemas rapidamente;<br>- Foco em metas e resultados.';
+        developmentAreas = '- Pode ser impulsivo(a) ou autoritário(a);<br>- Dificuldade em lidar com ambiguidades;<br>- Precisa desenvolver mais paciência.';
+        interpersonalRelations = 'Interage de forma assertiva e direta, mas pode parecer impaciente em situações que exigem muita reflexão.';
+        decisionMaking = 'Toma decisões rápidas e baseadas em resultados imediatos.';
+        mainMotivator = 'Alcançar metas ambiciosas e ser reconhecido(a).';
+        secondaryMotivator = 'Criar conexões e inspirar outras pessoas.';
+      } else if (scores.I > scores.D && scores.I > scores.S && scores.I > scores.C) {
+        profile = 'Influente (I)';
+        summary = 'Você é extrovertido(a), entusiasmado(a) e adora interagir com as pessoas. Sua energia contagiante e criatividade são grandes diferenciais.';
+        strengths = '- Habilidade para motivar e engajar;<br>- Criatividade e pensamento inovador;<br>- Facilidade em criar redes de relacionamento.';
+        developmentAreas = '- Pode ser distraído(a) ou disperso(a);<br>- Dificuldade em lidar com rotinas monótonas;<br>- Precisa desenvolver mais foco e disciplina.';
+        interpersonalRelations = 'Interage de forma calorosa e amigável, valorizando conexões interpessoais.';
+        decisionMaking = 'Toma decisões baseadas no consenso e na colaboração com os outros.';
+        mainMotivator = 'Criar conexões e inspirar outras pessoas.';
+        secondaryMotivator = 'Promover harmonia e equilíbrio na vida.';
+      } else if (scores.S > scores.D && scores.S > scores.I && scores.S > scores.C) {
+        profile = 'Estável (S)';
+        summary = 'Você é gentil, paciente e valoriza a harmonia em suas relações. Prefere ambientes tranquilos e previsíveis, onde possa contribuir de forma constante.';
+        strengths = '- Empatia e sensibilidade;<br>- Lealdade e comprometimento;<br>- Estabilidade emocional.';
+        developmentAreas = '- Pode ser resistente a mudanças;<br>- Dificuldade em expressar descontentamento;<br>- Precisa desenvolver mais assertividade.';
+        interpersonalRelations = 'Interage de forma calma e empática, buscando evitar conflitos.';
+        decisionMaking = 'Toma decisões refletidas e baseadas nas consequências para os outros.';
+        mainMotivator = 'Promover harmonia e equilíbrio na vida.';
+        secondaryMotivator = 'Aperfeiçoar habilidades e garantir precisão.';
+      } else if (scores.C > scores.D && scores.C > scores.I && scores.C > scores.S) {
+        profile = 'Conformidade (C)';
+        summary = 'Você é detalhista, organizado(a) e valoriza a precisão. Sente-se confortável em ambientes estruturados, onde pode seguir regras e padrões claros.';
+        strengths = '- Atento(a) aos detalhes;<br>- Preocupado(a) com qualidade e excelência;<br>- Confiável e consistente.';
+        developmentAreas = '- Pode ser perfeccionista demais;<br>- Dificuldade em lidar com incertezas;<br>- Precisa desenvolver mais flexibilidade.';
+        interpersonalRelations = 'Interage de forma formal e lógica, priorizando clareza e precisão.';
+        decisionMaking = 'Toma decisões baseadas em dados, fatos e análise crítica.';
+        mainMotivator = 'Aperfeiçoar habilidades e garantir precisão.';
+        secondaryMotivator = 'Alcançar metas ambiciosas e ser reconhecido(a).';
+      }
+
+      document.getElementById('profile-summary').innerHTML = `<strong>Perfil Predominante:</strong> ${profile}<br>${summary}`;
+      document.getElementById('strengths').innerHTML = strengths;
+      document.getElementById('development-areas').innerHTML = developmentAreas;
+      document.getElementById('interpersonal-relations').innerHTML = interpersonalRelations;
+      document.getElementById('decision-making').innerHTML = decisionMaking;
+      document.getElementById('main-motivator').innerHTML = mainMotivator;
+      document.getElementById('secondary-motivator').innerHTML = secondaryMotivator;
+
+      document.getElementById('results').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
